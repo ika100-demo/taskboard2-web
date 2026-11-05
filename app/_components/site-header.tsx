@@ -13,16 +13,12 @@ export function SiteHeader({ name, links }: { name: string; links: NavItem[] }) 
           </span>
           <span>{name}</span>
         </Link>
-        <nav aria-label="Primary">
-          <ul className="nav-list">
-            {links.map((link) => (
-              <li key={link.href}>
-                <a className="nav-link" href={link.href}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <nav aria-label="Primary" className="nav-list">
+          {links.map((link) => (
+            <a key={link.href} className="nav-link" href={link.href}>
+              {link.label}
+            </a>
+          ))}
         </nav>
       </div>
     </header>
