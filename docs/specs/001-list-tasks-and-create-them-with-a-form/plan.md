@@ -31,6 +31,7 @@ tasks:
     covers: [AC-001.1, AC-001.3, AC-001.10]
     parallel_safe: true
     depends_on: [t1]
+    done: true
   - id: t5
     title: Add the TaskForm client component
     files: [app/_components/task-form.tsx]
