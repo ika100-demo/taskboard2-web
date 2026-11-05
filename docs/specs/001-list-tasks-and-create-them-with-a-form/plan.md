@@ -45,6 +45,7 @@ tasks:
     covers: [AC-001.1, AC-001.2, AC-001.3, AC-001.4, AC-001.5, AC-001.6, AC-001.7, AC-001.8, AC-001.10, AC-001.12, AC-001.13]
     parallel_safe: false
     depends_on: [t4, t5]
+    done: true
 ---
 
 # Plan — 001 List tasks and create them with a form
