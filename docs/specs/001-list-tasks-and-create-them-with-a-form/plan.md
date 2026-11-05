@@ -24,6 +24,7 @@ tasks:
     covers: [AC-001.5, AC-001.6, AC-001.7, AC-001.8, AC-001.9, AC-001.11]
     parallel_safe: true
     depends_on: [t1]
+    done: true
   - id: t4
     title: Add the TaskList component
     files: [app/_components/task-list.tsx]
