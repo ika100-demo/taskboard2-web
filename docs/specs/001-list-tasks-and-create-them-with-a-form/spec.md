@@ -1,7 +1,7 @@
 ---
 spec_id: 001-list-tasks-and-create-them-with-a-form
 title: List tasks and create them with a form on the root page, calling taskboard2-api server-side
-status: draft
+status: approved
 priority: P1
 shape: web-nextjs
 parent: ika100-demo/taskboard2-gitops:002-persist-tasks-in-postgres-and-manage
@@ -176,3 +176,4 @@ Smoke criteria (marked `(smoke)`) are checked after deploy using only the web ap
 
 - 2026-11-05 created
 - 2026-11-05 amended: due-date error text fixed as "Please enter a valid date as YYYY-MM-DD." in AC-001.9 (open question answered)
+- 2026-11-05 approved
