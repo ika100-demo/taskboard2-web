@@ -152,7 +152,7 @@ Smoke criteria (marked `(smoke)`) are checked after deploy using only the web ap
 - **AC-001.6** Given the root URL is open, when the user enters a unique title, leaves "Due date" empty and clicks "Add task", then the API receives `due_date` as `null` and the new task appears as the last item of the list with no date. (system AC-002.9) (smoke)
 - **AC-001.7** Given the create form, when the user submits an empty title, a title of only spaces, or a title of 201 characters, then the request reaches the API (the web app adds no rule and no trimming of its own), the text "Please enter a title of 1 to 200 characters." is shown next to the title field, the title and due date the user entered are still in the fields, and no task is added to the list (also not after a reload). (system AC-002.10) (smoke)
 - **AC-001.8** Given the create form, when the user submits a title of exactly 200 characters, or a title with leading and trailing spaces, then the API receives the title exactly as typed and the list shows the task with the title the API returns (trimmed). (system AC-002.10) (smoke)
-- **AC-001.9** Given the API answers `POST /tasks` with `422`, when the last element of a `detail[].loc` is `due_date`, then the web app's own due-date error text is shown next to the "Due date" field; when no `loc` names `title` or `due_date`, then "The task could not be saved. Please try again later." is shown above the submit button; in both cases the inputs are kept, nothing is added to the list, and no text from the API's response body (such as its `msg`) appears in the page. (system AC-002.10)
+- **AC-001.9** Given the API answers `POST /tasks` with `422`, when the last element of a `detail[].loc` is `due_date`, then the text "Please enter a valid date as YYYY-MM-DD." is shown next to the "Due date" field; when no `loc` names `title` or `due_date`, then "The task could not be saved. Please try again later." is shown above the submit button; in both cases the inputs are kept, nothing is added to the list, and no text from the API's response body (such as its `msg`) appears in the page. (system AC-002.10)
 - **AC-001.10** Given `GET /tasks` fails (the API is unreachable, refuses the connection, does not answer within 5 seconds, answers `503` or any status other than `200`, returns a body that is not a JSON array of task objects, or the API's address is not configured), when a user opens the root URL, then the page answers `200` and shows "Tasks could not be loaded. Please try again later." instead of the list, together with the create form. (system AC-002.11)
 - **AC-001.11** Given `POST /tasks` fails (unreachable, no answer within 5 seconds, `503` or any status other than `201` and `422`, or a body that is not a task object), when the user submits the create form, then "The task could not be saved. Please try again later." is shown above the submit button, the title and due date the user entered are kept, nothing is appended to the list, and the call is not retried. (system AC-002.11)
 - **AC-001.12** Given the API is unreachable or the API's address is not configured, when the web app starts and its liveness and readiness endpoints are called, then the app starts and both endpoints answer as healthy. (system AC-002.11)
@@ -170,8 +170,9 @@ Smoke criteria (marked `(smoke)`) are checked after deploy using only the web ap
 
 ## Open questions
 
-- Which text is shown next to the "Due date" field when the API rejects the due date with `422`? The plan fixes only the title text. (suggested: "Please enter a valid date as YYYY-MM-DD."; affects AC-001.9)
+- ~~Which text is shown next to the "Due date" field when the API rejects the due date with `422`?~~ Answered: "Please enter a valid date as YYYY-MM-DD.", see AC-001.9.
 
 ## Changelog
 
 - 2026-11-05 created
+- 2026-11-05 amended: due-date error text fixed as "Please enter a valid date as YYYY-MM-DD." in AC-001.9 (open question answered)
