@@ -17,6 +17,7 @@ tasks:
     covers: [AC-001.3, AC-001.10, AC-001.11]
     parallel_safe: true
     depends_on: []
+    done: true
   - id: t3
     title: Add the createTaskAction Server Action
     files: [app/actions.ts]
