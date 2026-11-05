@@ -10,6 +10,7 @@ tasks:
     covers: [AC-001.1, AC-001.3, AC-001.8, AC-001.9, AC-001.10, AC-001.11, AC-001.12]
     parallel_safe: true
     depends_on: []
+    done: true
   - id: t2
     title: Add the e2e stub API and start it from the Playwright config
     files: [e2e/support/stub-api.mjs, playwright.config.ts]
